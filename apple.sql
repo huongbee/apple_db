@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2018 at 06:10 PM
+-- Generation Time: Apr 18, 2018 at 01:15 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -388,17 +388,10 @@ INSERT INTO `role` (`id`, `role`) VALUES
 --
 
 CREATE TABLE `role_user` (
-  `id` int(10) NOT NULL,
+  `id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `user_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `role_user`
---
-
-INSERT INTO `role_user` (`id`, `role_id`, `user_id`) VALUES
-(1, 1, 1);
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -407,26 +400,26 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
-  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
   `birthdate` date NOT NULL,
-  `gender` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `remember_token` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(10) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `remember_token` varchar(1000) DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `fullname`, `birthdate`, `gender`, `address`, `email`, `phone`, `remember_token`, `updated_at`, `created_at`) VALUES
-(1, 'huonghuong', '1', 'Huong Hương', '2018-04-03', 'nữ', 'Quận 1', 'huongnguyenak96@gmail.com', '', NULL, '2018-04-15 08:35:57', '2018-04-15 08:35:57');
+(1, 'huonghuong', '1', 'Huong Hương', '2018-04-03', 'nữ', 'Quận 1', 'huongnguyenak96@gmail.com', '', NULL, '2018-04-15 01:35:57', '2018-04-15 01:35:57');
 
 --
 -- Indexes for dumped tables
@@ -546,18 +539,6 @@ ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `role_user`
---
-ALTER TABLE `role_user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- Constraints for dumped tables
 --
 
@@ -591,7 +572,8 @@ ALTER TABLE `products`
 -- Constraints for table `role_user`
 --
 ALTER TABLE `role_user`
-  ADD CONSTRAINT `role_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
+  ADD CONSTRAINT `role_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
+  ADD CONSTRAINT `role_user_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
