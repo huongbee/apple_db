@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2018 at 01:15 PM
+-- Generation Time: Apr 18, 2018 at 02:13 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -396,6 +396,31 @@ CREATE TABLE `role_user` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `slide`
+--
+
+CREATE TABLE `slide` (
+  `id` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `link` varchar(100) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1: show , 0: hide'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `slide`
+--
+
+INSERT INTO `slide` (`id`, `image`, `link`, `title`, `status`) VALUES
+(1, 'slider-img3.jpg', '', 'Slide  03', 1),
+(2, 'slider-img1.jpg', '', 'Slide 01', 1),
+(3, 'slider-img2.jpg', '', 'Slide  02', 1),
+(4, 'slider-img4.jpg', '', 'Slide 04', 0),
+(5, 'slider-img5.jpg', '', 'Slide 05', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -485,6 +510,12 @@ ALTER TABLE `role_user`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `slide`
+--
+ALTER TABLE `slide`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -537,6 +568,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `slide`
+--
+ALTER TABLE `slide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
