@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
+<<<<<<< HEAD
+-- Generation Time: Aug 02, 2018 at 05:56 AM
+=======
 -- Generation Time: Jun 14, 2018 at 02:36 PM
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -19,7 +23,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
+<<<<<<< HEAD
+-- Database: `php0505_3`
+=======
 -- Database: `apple2`
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 --
 
 -- --------------------------------------------------------
@@ -38,7 +46,11 @@ CREATE TABLE `bills` (
   `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `token_date` datetime DEFAULT NULL,
+<<<<<<< HEAD
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0: chưa xác nhận, 1: đã xác nhận, 2:đã hoàn tất'
+=======
   `status` tinyint(4) NOT NULL DEFAULT '0'
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
@@ -53,7 +65,16 @@ INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `promt_price`, 
 (7, 7, '2018-05-23', 27998000, 27908000, 'COD', 'qwer4th', 'rZV3ocr1dePzKNa6iYJyBMlNsWMT3U', '2018-05-23 19:05:43', 0),
 (8, 8, '2018-05-23', 27998000, 27908000, 'COD', '2134567890iuhfgfdcz', 'X9ThlaZI9Rbs180NP1CpDHULEwBJ3M', '2018-05-23 19:14:37', 0),
 (9, 9, '2018-05-23', 34790000, 32790000, 'COD', '2345654redscx', 'C1UgK61Opp5WtymI7kKWO6cOHyFSrN', '2018-05-23 19:19:15', 0),
+<<<<<<< HEAD
+(10, 10, '2018-05-25', 27998000, 27908000, 'COD', 'qưer', '', '0000-00-00 00:00:00', 1),
+(11, 17, '2018-07-24', 229980000, 228990000, 'COD', '', 'BbTyz6fzDwijyRi4AKxxRR8oBbcP4bNCPTQUUNL8lbsqpHhvLw', '2018-07-24 19:25:03', 0),
+(12, 18, '2018-07-24', 479929000, 478849000, 'COD', '', 'WWUFVVPR5OkfZqVyPw5rHGwQx8J60Itj6YQri0c0IKT07gnaR5', '2018-07-24 19:26:15', 0),
+(13, 19, '2018-07-26', 49989000, 49809000, 'COD', '<p>sdsd</p>', NULL, '2018-07-26 19:00:00', 1),
+(14, 20, '2018-07-26', 189965000, 189245000, 'COD', '<p>wed</p>', NULL, NULL, 1),
+(15, 21, '2018-07-26', 299900000, 299000000, 'COD', '<p>qư</p>', NULL, NULL, 1);
+=======
 (10, 10, '2018-05-25', 27998000, 27908000, 'COD', 'qưer', '', '0000-00-00 00:00:00', 1);
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 
 -- --------------------------------------------------------
 
@@ -66,13 +87,48 @@ CREATE TABLE `bill_detail` (
   `id_bill` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` double NOT NULL
+  `price` double NOT NULL,
+  `discount_price` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='chi_tiet_hoa_don' ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `bill_detail`
 --
 
+<<<<<<< HEAD
+INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `price`, `discount_price`) VALUES
+(7, 3, 7, 2, 39998000, NULL),
+(8, 3, 10, 1, 7999000, NULL),
+(9, 4, 7, 2, 39998000, NULL),
+(10, 4, 10, 1, 7999000, NULL),
+(11, 4, 61, 1, 31900000, NULL),
+(12, 4, 62, 2, 91980000, NULL),
+(13, 5, 7, 2, 39998000, NULL),
+(14, 5, 10, 1, 7999000, NULL),
+(15, 5, 61, 1, 31900000, NULL),
+(16, 5, 62, 2, 91980000, NULL),
+(17, 6, 7, 1, 19999000, NULL),
+(18, 6, 10, 1, 7999000, NULL),
+(19, 7, 7, 1, 19999000, NULL),
+(20, 7, 10, 1, 7999000, NULL),
+(21, 8, 7, 1, 19999000, NULL),
+(22, 8, 10, 1, 7999000, NULL),
+(23, 9, 1, 1, 34790000, NULL),
+(24, 10, 7, 1, 19999000, NULL),
+(25, 10, 10, 1, 7999000, NULL),
+(26, 9, 1, 1, 34790000, NULL),
+(27, 9, 1, 1, 34790000, NULL),
+(28, 11, 7, 10, 199990000, 199090000),
+(29, 11, 2, 1, 29990000, 29900000),
+(30, 12, 7, 11, 219989000, 218999000),
+(31, 12, 2, 1, 29990000, 29900000),
+(32, 12, 62, 5, 229950000, 229950000),
+(33, 13, 2, 1, 29990000, 29900000),
+(34, 13, 7, 1, 19999000, 19909000),
+(35, 14, 2, 3, 89970000, 89700000),
+(36, 14, 7, 5, 99995000, 99545000),
+(37, 15, 2, 10, 299900000, 299000000);
+=======
 INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `price`) VALUES
 (7, 3, 7, 2, 39998000),
 (8, 3, 10, 1, 7999000),
@@ -93,6 +149,7 @@ INSERT INTO `bill_detail` (`id`, `id_bill`, `id_product`, `quantity`, `price`) V
 (23, 9, 1, 1, 34790000),
 (24, 10, 7, 1, 19999000),
 (25, 10, 10, 1, 7999000);
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 
 -- --------------------------------------------------------
 
@@ -114,6 +171,21 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `name`, `id_url`, `icon`) VALUES
 (5, 'Apple Watch', 4, 'fa-clock-o'),
 (6, 'Phụ kiện', 5, 'fa-headphones'),
+<<<<<<< HEAD
+(7, 'iPhone X', 6, 'fa-mobile'),
+(8, 'iPhone 8|8Plus', 7, 'fa-mobile'),
+(9, 'iPhone 7|7Plus', 8, 'fa-mobile'),
+(10, 'iPhone 6|6Plus', 9, 'fa-mobile'),
+(11, 'iPad Pro', 10, 'fa-tablet'),
+(12, 'iPad (New) 2017', 11, 'fa-tablet'),
+(13, 'iPad mini 4', 12, 'fa-tablet'),
+(14, 'Macbook 12 inch', 14, 'fa-laptop'),
+(15, 'Macbook Air', 15, 'fa-laptop'),
+(16, 'Macbook Pro Retina', 16, 'fa-laptop'),
+(17, 'iMAC', 17, 'fa-inbox'),
+(18, 'MacPro', 18, 'fa-inbox'),
+(19, 'Mac mini', 19, 'fa-inbox');
+=======
 (7, 'iPhone X', 6, NULL),
 (8, 'iPhone 8|8Plus', 7, NULL),
 (9, 'iPhone 7|7Plus', 8, NULL),
@@ -128,6 +200,7 @@ INSERT INTO `categories` (`id`, `name`, `id_url`, `icon`) VALUES
 (18, 'MacPro', 18, NULL),
 (19, 'Mac mini', 19, NULL),
 (20, 'Loai A', 123, NULL);
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 
 -- --------------------------------------------------------
 
@@ -157,7 +230,22 @@ INSERT INTO `customers` (`id`, `name`, `gender`, `email`, `address`, `phone`) VA
 (7, 'Huong Hương', 'Nam', 'huongnguyen08.cv@gmail.com', 'Quận 1', '1632967751'),
 (8, 'Huong Hương', 'Nam', 'huongnguyen08.cv@gmail.com', 'Quận 1', '1632967751'),
 (9, 'Ngoc Huong', 'Nam', 'huongnguyen08@gmail.com', 'Quận 1', '1632967751'),
+<<<<<<< HEAD
+(10, 'Ngoc Huong', 'Nam', 'huongnguyen08.cv@gmail.com', 'Quận 1', '1632967751'),
+(11, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(12, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(13, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(14, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(15, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(16, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(17, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(18, 'Ngoc Huong', 'nam', 'huongnguyenak96@gmail.com', 'Quận 1', '1632967751'),
+(19, 'Ngoc Huong', 'nam', 'huongnguyen08.cv@gmail.com', 'Quận 1', '1632967751'),
+(20, 'Ngoc Huong', 'nam', 'huongnguyen08.cv@gmail.com', 'Quận 1', '1632967751'),
+(21, 'Ngoc Huong', 'nam', 'huongnguyen08.cv@gmail.com', 'Quận 1', '1632967751');
+=======
 (10, 'Ngoc Huong', 'Nam', 'huongnguyen08.cv@gmail.com', 'Quận 1', '1632967751');
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 
 -- --------------------------------------------------------
 
@@ -302,7 +390,7 @@ CREATE TABLE `products` (
   `detail` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `price` double NOT NULL,
   `promotion_price` float NOT NULL DEFAULT '0',
-  `promotion` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `promotion` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'khuyen mai kem theo',
   `image` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0: sp bình thường, 1: sp đặc biệt',
   `new` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0: old, 1:new',
@@ -587,13 +675,21 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+=======
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 
 --
 -- AUTO_INCREMENT for table `bill_detail`
 --
 ALTER TABLE `bill_detail`
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+=======
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -605,7 +701,11 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
+<<<<<<< HEAD
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+=======
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+>>>>>>> 4d036f06c4dd712240ed9b0ae2a1dd0dd1703dd3
 
 --
 -- AUTO_INCREMENT for table `page_url`
